@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pablo Urrutia · Senior Product Manager</title>
+<meta name="description" content="Pablo Urrutia, Senior Product Manager. Biologist turned product manager, 6+ years in nature and geospatial data products. A portfolio curated for renew.">
+<meta name="theme-color" content="#2A2145">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pablourrutia-pm.github.io/renew/">
+<meta property="og:title" content="Pablo Urrutia · Senior Product Manager">
+<meta property="og:description" content="Biologist turned product manager, 6+ years in nature and geospatial data products. A portfolio curated for renew.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap">
+<link rel="preload" href="assets/fonts/DepartureMono.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face {
+  font-family: 'Departure Mono';
+  src: url('assets/fonts/DepartureMono.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============ Tokens (docs/brief.md, section 4) ============ */
+:root {
+  --canvas: #2A2145;
+  --surface: #433468;
+  --light: #F8FAFC;
+  --card-light: #FFFFFF;
+  --border-light: #E2E8F0;
+  --text: #EEEAF7;
+  --text-2: #C9C0DE;
+  --text-faint: rgba(238,234,247,0.55);
+  --hairline: rgba(238,234,247,0.16);
+  --ink: #020617;
+  --ink-2: #334155;
+  --accent: #B79CFF;
+  --accent-light: #6D4FD1;
+  --button: #6D4FD1;
+  --orange: #FF9F40;
+  --focus: #FF9F40;
+
+  --teal: #3A9E8F; --green: #5BAF3C; --yellow: #E8B931; --pink: #D63A7A; --blue: #3B5BDB;
+
+  --font-display: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Departure Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --r-sm: 6px; --r-md: 12px; --r-card: 20px; --r-img: 28px; --r-pill: 999px;
+  --container: 1080px; --content: 720px; --text-w: 680px;
+  --gutter: 24px;
+  --band-y: 56px;
+}
+@media (min-width: 720px) { :root { --band-y: 88px; } }
+
+/* ============ Base ============ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+button { font: inherit; color: inherit; }
+
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+/* On light surfaces the orange ring alone is too faint: frame it with ink. */
+.band-light :focus-visible, .case :focus-visible, body[data-mode="tldr"] :focus-visible { box-shadow: 0 0 0 6px var(--ink); }
+h1:focus-visible { outline: none; box-shadow: none; }
+
+.skip {
+  position: absolute; left: 12px; top: -60px; z-index: 100;
+  background: var(--orange); color: var(--ink); padding: 10px 16px; border-radius: var(--r-pill);
+  font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none;
+}
+.skip:focus { top: 12px; }
+
+.container { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+.band { padding: var(--band-y) 0; }
+.band-dark { background: var(--canvas); color: var(--text); }
+.band-light { background: var(--light); color: var(--ink); }
+.band-dark + .band-dark { border-top: 1px solid var(--hairline); }
+
+.label {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); margin: 0 0 16px;
+}
+@media (min-width: 720px) { .label { font-size: 13px; } }
+.band-light .label, .case .label { color: var(--accent-light); }
+.label-orange { color: var(--orange) !important; }
+
+.h1 {
+  font-size: 34px; font-weight: 700; line-height: 1.04; letter-spacing: -0.85px;
+  max-width: 900px; text-wrap: balance;
+}
+@media (min-width: 720px) { .h1 { font-size: 42px; } }
+.h1 .hl { color: var(--accent); }
+.h2 { font-size: 22px; font-weight: 600; line-height: 1.2; letter-spacing: -0.2px; }
+.h3 { font-size: 18px; font-weight: 600; line-height: 1.25; }
+.lede { font-size: 18px; line-height: 1.55; color: var(--text-2); max-width: var(--text-w); margin-top: 24px; }
+.intro { font-size: 17px; color: var(--text-2); max-width: var(--text-w); margin-top: 16px; }
+.inline-link { color: var(--accent); text-underline-offset: 3px; }
+.band-light .inline-link, .case .inline-link { color: var(--accent-light); }
+
+/* ============ Buttons ============ */
+.btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none; padding: 14px 22px; border-radius: var(--r-pill);
+  border: 1.5px solid var(--hairline); color: var(--text); background: transparent; cursor: pointer;
+  transition: background-color 140ms ease, border-color 140ms ease;
+}
+.btn:hover { border-color: var(--accent); }
+.btn-primary { background: var(--button); border-color: var(--button); color: #FFFFFF; }
+.btn-primary:hover { background: #5B3FBF; border-color: #5B3FBF; }
+.btn-disabled { cursor: not-allowed; opacity: 1; border-style: dashed; }
+
+/* Placeholder: anything still to fill is loud on purpose. */
+.ph {
+  display: inline-block; font-family: var(--font-mono); font-size: 0.8em; letter-spacing: 0.04em;
+  color: var(--orange); border: 1.5px dashed var(--orange); border-radius: var(--r-sm);
+  padding: 1px 6px; background: rgba(255,159,64,0.12); white-space: nowrap;
+}
+.band-light .ph, .case .ph, body[data-mode="tldr"] .ph { color: var(--ink); background: rgba(255,159,64,0.28); }
+
+/* ============ Header ============ */
+.site-header {
+  position: sticky; top: 0; z-index: 30;
+  background: rgba(42,33,69,0.92); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--hairline);
+}
+.headrow { display: flex; align-items: center; gap: 20px; min-height: 64px; position: relative; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-2); }
+.mark {
+  width: 26px; height: 32px; flex: 0 0 auto; background: var(--accent);
+  -webkit-mask: url('assets/pu-mark.png') center / contain no-repeat; mask: url('assets/pu-mark.png') center / contain no-repeat;
+}
+.brand-name { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+.nav { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+.nav a {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-2); text-decoration: none; padding: 6px 0; position: relative;
+}
+.nav a:hover { color: var(--text); }
+.nav a[aria-current="page"] { color: var(--text); }
+.nav a[aria-current="page"]::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: var(--accent); }
+.burger {
+  display: none; margin-left: auto; background: none; border: 1px solid var(--hairline); border-radius: var(--r-pill);
+  color: var(--text); font-size: 18px; line-height: 1; width: 40px; height: 40px; cursor: pointer;
+}
+.mode {
+  display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--hairline); border-radius: var(--r-pill);
+  background: transparent; cursor: pointer; flex: 0 0 auto;
+}
+.mode span {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 6px 11px; border-radius: var(--r-pill); color: var(--text-2);
+}
+.mode[aria-pressed="false"] .m-full, .mode[aria-pressed="true"] .m-tldr { background: var(--button); color: #FFFFFF; }
+
+@media (max-width: 760px) {
+  .burger { display: inline-flex; align-items: center; justify-content: center; }
+  .nav {
+    display: none; position: absolute; top: 100%; left: calc(-1 * var(--gutter)); right: calc(-1 * var(--gutter));
+    flex-direction: column; align-items: stretch; gap: 0; margin: 0;
+    background: var(--canvas); border-bottom: 1px solid var(--hairline); padding: 4px var(--gutter) 12px;
+  }
+  .nav.open { display: flex; }
+  .nav a { padding: 15px 0; border-bottom: 1px solid var(--hairline); }
+  .nav a:last-child { border-bottom: none; }
+  .nav a[aria-current="page"]::after { display: none; }
+  .nav a[aria-current="page"] { color: var(--accent); }
+  .brand-name { font-size: 11px; }
+}
+@media (max-width: 380px) { .brand-name { display: none; } }
+
+/* ============ Home ============ */
+.hero { position: relative; overflow: hidden; }
+.hero::before {
+  content: ""; position: absolute; inset: -20% -10% auto auto; width: 70%; height: 140%;
+  background: radial-gradient(closest-side, rgba(109,79,209,0.35), rgba(109,79,209,0) 70%);
+  pointer-events: none;
+}
+.hero .container { position: relative; }
+.badge { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.badge-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); }
+.pill {
+  display: inline-flex; align-items: center; padding: 7px 18px; border-radius: var(--r-pill);
+  background: var(--surface); color: var(--text); font-family: var(--font-display); font-weight: 600; font-size: 17px;
+  border: 1px solid rgba(183,156,255,0.4);
+}
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 20px; }
+.card {
+  display: flex; flex-direction: column; text-decoration: none; overflow: hidden;
+  background: var(--card-light); border: 1px solid var(--border-light); border-radius: var(--r-card); color: var(--ink);
+  transition: border-color 140ms ease, transform 140ms ease, box-shadow 140ms ease;
+}
+.card:hover { border-color: var(--accent-light); box-shadow: 0 10px 30px rgba(42,33,69,0.10); }
+.card-img { aspect-ratio: 16 / 9; background: var(--surface); overflow: hidden; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.card-body { padding: 20px 20px 22px; display: flex; flex-direction: column; flex: 1; }
+.card-meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 10px; }
+.card-title { font-family: var(--font-display); font-weight: 600; font-size: 19px; line-height: 1.2; letter-spacing: -0.1px; }
+.card-line { margin-top: 10px; font-size: 15px; line-height: 1.5; color: var(--ink-2); flex: 1; }
+.card-cta { margin-top: 16px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); }
+.arrow { display: inline-block; transition: transform 120ms ease; }
+.card:hover .arrow, .row-link:hover .arrow, .live:hover .arrow { transform: translateX(4px); }
+
+.nextup {
+  border: 1.5px dashed rgba(255,159,64,0.55); border-radius: var(--r-card); background: var(--surface);
+  padding: 32px 28px; max-width: 860px;
+}
+.nextup .h2 { margin-bottom: 12px; }
+.nextup p { color: var(--text-2); max-width: var(--text-w); }
+.nextup .btns { margin-top: 24px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: var(--r-pill);
+  font-size: 15px; line-height: 1.3; color: var(--ink); background: color-mix(in srgb, var(--c) 15%, #FFFFFF);
+}
+.chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: 0 0 auto; }
+.chip.sm { font-size: 13px; padding: 5px 12px; }
+
+/* ============ How I work ============ */
+.caps { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; margin-top: 40px; }
+.cap { background: var(--surface); border-radius: var(--r-card); padding: 26px 24px; display: flex; flex-direction: column; }
+.cap-n { font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-bottom: 12px; }
+.cap .h3 { margin-bottom: 10px; font-size: 19px; }
+.cap p { font-size: 15px; color: var(--text-2); flex: 1; }
+.cap-ev { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--hairline); font-family: var(--font-mono); font-size: 12px; line-height: 1.6; color: var(--text-2); }
+.panel { background: var(--surface); border-radius: var(--r-card); padding: 32px 28px; }
+.panel p { color: var(--text-2); max-width: var(--text-w); }
+
+/* ============ About ============ */
+.about-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 48px; align-items: start; margin-top: 32px; }
+@media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+.about-grid .story { font-size: 17px; color: var(--text-2); }
+.box { background: var(--surface); border-radius: var(--r-card); padding: 22px 24px; margin-top: 24px; }
+.box .label { margin-bottom: 8px; font-size: 12px; }
+.box p { color: var(--text); }
+.earlier { margin-top: 20px; font-size: 15px; color: var(--text-2); }
+.section-h { margin: 48px 0 20px; padding-bottom: 14px; border-bottom: 1px solid var(--hairline); }
+.timeline li { display: grid; grid-template-columns: 112px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--hairline); }
+.t-year { font-family: var(--font-mono); font-size: 13px; color: var(--accent); display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }
+.t-title { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 500; }
+.t-title::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--text-faint)); flex: 0 0 auto; }
+.t-org { font-size: 15px; color: var(--text-2); margin-left: 18px; }
+.photo { border-radius: var(--r-img); overflow: hidden; }
+.photo img { width: 100%; filter: grayscale(1); }
+.caption { margin-top: 10px; font-family: var(--font-mono); font-size: 12px; color: var(--text-2); }
+.edu { margin-top: 32px; }
+.edu li { font-size: 15px; color: var(--text-2); padding: 11px 0; border-bottom: 1px solid var(--hairline); }
+
+/* ============ Contact ============ */
+.rows { margin-top: 40px; border-top: 1px solid var(--hairline); max-width: var(--text-w); }
+.row-link, .row { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 4px; border-bottom: 1px solid var(--hairline); text-decoration: none; color: var(--text); }
+.row-k { display: block; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-2); margin-bottom: 4px; }
+.row-link .arrow { color: var(--accent); }
+.row-v { overflow-wrap: anywhere; }
+
+/* ============ Case pages ============ */
+.case { background: var(--light); color: var(--ink); }
+.case .container { max-width: calc(800px + 2 * var(--gutter)); }
+.case-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 16px; padding: 24px 0 20px; }
+.back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; padding: 6px 0; }
+.back:hover { color: var(--accent-light); }
+.case-client { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); }
+.gallery { display: grid; gap: 12px; margin-bottom: 32px; }
+.gallery figure { margin: 0; background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--r-img); overflow: hidden; }
+.gallery .rest { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; }
+.gallery .rest figure { aspect-ratio: 4 / 3; border-radius: var(--r-card); }
+.gallery .rest img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.case .h1 { margin-top: 8px; }
+.case .chips { margin-top: 20px; }
+.tldr-box { display: flex; gap: 14px; align-items: flex-start; background: var(--canvas); color: var(--text); border-radius: var(--r-card); padding: 18px 20px; margin: 28px 0; }
+.tldr-box b { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--accent); flex: 0 0 auto; padding-top: 3px; }
+.tldr-box p { font-family: var(--font-mono); font-size: 14px; line-height: 1.7; }
+.case-sec { margin-top: 32px; }
+.case-sec .h2 { font-size: 20px; margin-bottom: 14px; }
+.case-sec > p { color: var(--ink-2); }
+.bullets { display: flex; flex-direction: column; gap: 12px; }
+.bullets li { display: flex; gap: 12px; color: var(--ink); }
+.bullets li::before { content: "→"; color: var(--accent-light); font-weight: 700; flex: 0 0 auto; }
+.carousel { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; -webkit-overflow-scrolling: touch; border-radius: var(--r-md); }
+.carousel figure { margin: 0; flex: 0 0 min(320px, 80%); scroll-snap-align: start; border-radius: var(--r-card); overflow: hidden; border: 1px solid var(--border-light); background: #FFFFFF; }
+.why { background: var(--surface); color: var(--text); border-radius: var(--r-card); padding: 24px; margin-top: 36px; }
+.why .label { color: var(--accent); margin-bottom: 10px; }
+.live { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; color: var(--accent-light); text-decoration: underline; text-underline-offset: 4px; }
+.case-foot { margin-top: 28px; padding: 20px 0 var(--band-y); border-top: 1px solid var(--border-light); }
+
+/* ============ Footer ============ */
+.site-footer { background: var(--canvas); border-top: 1px solid var(--hairline); padding: 48px 0; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; }
+.foot-col { display: flex; flex-direction: column; gap: 8px; max-width: 380px; font-family: var(--font-mono); font-size: 12px; line-height: 1.65; color: var(--text-2); }
+.foot-col a { color: var(--text); text-decoration: none; }
+.foot-col a:hover { color: var(--accent); }
+.foot-col .label { margin: 0; font-size: 12px; }
+
+/* ============ TL;DR mode: light, text only ============ */
+body[data-mode="tldr"] { background: var(--light); color: var(--ink); }
+body[data-mode="tldr"] .site-header { background: rgba(248,250,252,0.94); border-bottom-color: var(--border-light); }
+body[data-mode="tldr"] .brand { color: var(--ink-2); }
+body[data-mode="tldr"] .mark { background: var(--accent-light); }
+body[data-mode="tldr"] .nav, body[data-mode="tldr"] .burger { display: none !important; }
+body[data-mode="tldr"] .mode { margin-left: auto; border-color: var(--border-light); }
+body[data-mode="tldr"] .mode span { color: var(--ink-2); }
+body[data-mode="tldr"] .mode .m-tldr { color: #FFFFFF; }
+body[data-mode="tldr"] .site-footer { background: var(--light); border-top-color: var(--border-light); }
+body[data-mode="tldr"] .foot-col { color: var(--ink-2); }
+body[data-mode="tldr"] .foot-col a { color: var(--ink); }
+body[data-mode="tldr"] .foot-col .label { color: var(--accent-light); }
+.tldr { max-width: var(--text-w); margin: 0 auto; padding: 64px var(--gutter) 56px; font-family: var(--font-mono); font-size: 15px; line-height: 1.7; }
+.tldr .h1 { font-family: var(--font-mono); font-size: 26px; letter-spacing: 0; line-height: 1.25; }
+.tldr .sub { margin-top: 12px; color: var(--ink-2); }
+.tldr dl { margin: 36px 0 0; border-top: 1px solid var(--border-light); }
+.tldr dl > div { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border-light); }
+@media (max-width: 560px) { .tldr dl > div { grid-template-columns: 1fr; gap: 4px; } }
+.tldr dt { font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px; color: var(--accent-light); padding-top: 3px; }
+.tldr dd { margin: 0; color: var(--ink); }
+.tldr a { color: var(--accent-light); text-underline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .card:hover { transform: translateY(-2px); }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container headrow">
+    <a class="brand" href="#/" aria-label="Pablo Urrutia, home">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="brand-name">Pablo Urrutia</span>
+    </a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">☰</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="#/work" data-nav="work">Selected Work</a>
+      <a href="#/how" data-nav="how">How I Work</a>
+      <a href="#/about" data-nav="about">About</a>
+      <a href="#/contact" data-nav="contact">Contact</a>
+    </nav>
+    <button class="mode" type="button" aria-pressed="false" aria-label="TL;DR version: lighter, text only">
+      <span class="m-full" aria-hidden="true">Full</span><span class="m-tldr" aria-hidden="true">TL;DR</span>
+    </button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1"></main>
+
+<footer class="site-footer">
+  <div class="container foot">
+    <div class="foot-col">
+      <span>Built in Granada, between a morning swim and too much coffee.</span>
+      <a href="mailto:pablodelmares@gmail.com">pablodelmares@gmail.com</a>
+    </div>
+    <div class="foot-col">
+      <p class="label">✳ TL;DR version</p>
+      <span>A lighter, text-only read, toggle top right.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // ---- Fill in when ready (see README / docs/brief.md section 6) ----
+  // [USE-CASE LINK]: paste the live use-case URL here; empty keeps the visible placeholder.
+  var USE_CASE_URL = '';
+
+  var NAME = 'Pablo Urrutia';
+  var TAXA = ['var(--teal)', 'var(--green)', 'var(--yellow)', 'var(--pink)', 'var(--blue)'];
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function img(src, w, h, alt, eager) {
+    return '<img src="assets/' + src + '" width="' + w + '" height="' + h + '" alt="' + esc(alt) + '"' +
+      (eager ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async">';
+  }
+  function chips(list, small) {
+    return '<ul class="chips">' + list.map(function (t, i) {
+      return '<li class="chip' + (small ? ' sm' : '') + '" style="--c:' + TAXA[i % TAXA.length] + '">' + esc(t) + '</li>';
+    }).join('') + '</ul>';
+  }
+  function placeholder(text) { return '<span class="ph">' + esc(text) + '</span>'; }
+
+  // ================= Content =================
+  var CASES = [
+    {
+      slug: 'trase',
+      meta: 'Vizzuality · Product Design & Development',
+      short: 'Trase',
+      line: 'Supply-chain transparency on geospatial data. Turned user research into a context-first flow and data cards: search completion and engagement rose.',
+      thumb: ['thumb-trase.webp', 720, 416, 'Trase map and Sankey diagram of soy trade flows'],
+      eyebrow: 'Vizzuality · Product Design & Development',
+      client: 'SEI · Global Canopy',
+      title: 'Trase, Supply-Chain Transparency Platform',
+      tags: ['Geospatial', 'Data', 'Product', 'User Research', 'UX/UI', 'Project Operations Contract Definition', 'Requirements Definition', 'Design System'],
+      tldr: 'A geospatial platform that traces commodity supply chains to expose deforestation and environmental risk. I managed development of the supply-chain tool and turned user research into concrete product improvements.',
+      did: [
+        ['Coordinated cross-functional delivery', 'of a large, data-heavy geospatial product across scientific, engineering and design teams.'],
+        ['Synthesised user research', 'and proposed a context-first flow: let users select a trade flow (e.g. "Soy exports from Brazil to the EU") before the data.'],
+        ['Conceptualised and delivered core product features', 'including country profiles, Sankey trade-flow visualizations and data-download pages.'],
+        ['Replaced dense datasets with data cards', '(clear, pre-processed summaries of the key insight).'],
+        ['Built a design-system library', 'so other partners and vendors could keep developing the platform consistently.'],
+        ['Aligned the team', 'with structured documentation and user narratives on prioritisation and redesign scope.']
+      ],
+      impact: [
+        ['Pivoted toward guided context selection', 'and simplified data delivery.'],
+        ['Search-completion rates rose;', 'time-on-page and engagement increased on summary pages.'],
+        ['Broadened beyond expert users', 'to policymakers, media and NGOs.']
+      ],
+      why: 'When a data-heavy platform is reorganised around the question a user actually has, the insight stops being buried. Guided context and simpler data cards let policymakers, media and NGOs, not only experts, turn supply-chain data into pressure against deforestation.',
+      live: ['https://trase.earth', 'See it live'],
+      images: [
+        ['trase-1.webp', 1800, 1041, 'Trase map of Brazilian soy sourcing regions beside a Sankey diagram of trade flows'],
+        ['trase-2.png', 860, 568, 'Trase world map with trade-flow lines from South America to importing countries'],
+        ['trase-3.png', 500, 568, 'Trase data card showing a 2020 trade volume of 121,797,712 tonnes'],
+        ['trase-4.png', 1008, 600, 'Trase data card: bar chart of palm oil volumes, highlighting Pakistan']
+      ]
+    },
+    {
+      slug: 'encore',
+      meta: 'Global Canopy · Product & Design',
+      short: 'ENCORE Insights',
+      line: 'Nature-risk intelligence for finance. I run product end to end: requirements, prototypes and the design system.',
+      thumb: ['thumb-encore.webp', 720, 335, 'ENCORE Insights country profile dashboard'],
+      eyebrow: 'Global Canopy · Product & Design',
+      client: 'Global Canopy',
+      title: 'ENCORE Insights, Nature-Risk Intelligence for Finance',
+      tags: ['Product Management', 'Requirements Definition', 'Product Lifecycle', 'Prototyping', 'UI Design', 'Claude Code + Figma MCP', 'Design System', 'Front-end Code'],
+      tldr: "Global Canopy's ENCORE Insights turns nature and biodiversity risk into intelligence financial institutions can act on. I run product end to end: requirements, workflows and lifecycle for the team, and I lead prototyping and product design hands-on, designing with Claude Code connected to Figma through MCP, plus the design system and part of the front-end code.",
+      did: [
+        ['Define the product.', 'I set the product requirements, workflows and lifecycle the whole team works to.'],
+        ['Lead prototyping and product design.', 'I produce the actual designs with Claude Code connected to Figma through MCP, iterating from working prototype to final UI with the lead designer.'],
+        ['Build the design system.', 'I create and maintain the ENCORE design system in Figma, generated and kept in sync with Claude Code, so the product stays consistent as it scales.'],
+        ['Contribute to the build.', 'I write part of the front-end code with Claude Code, staying close to how the product is implemented.']
+      ],
+      why: 'A product manager who can define requirements, prototype, design and ship some of the code keeps the loop tight: less lost in translation between teams, and a product that helps financial institutions actually see and act on nature risk.',
+      live: ['https://encorenature.org', 'See it live: ENCORE, the public tool'],
+      images: [
+        ['encore-1.webp', 1800, 836, 'ENCORE Insights country profile for Austria with headline exposure figures'],
+        ['encore-2.png', 1416, 1778, 'ENCORE Insights scatter plot of sectoral exposure against nature dependency'],
+        ['encore-3.webp', 1800, 781, 'ENCORE Insights sectoral exposure table with dependency bars'],
+        ['encore-4.webp', 1800, 791, 'ENCORE Insights heatmap of economic sectors against ecosystem services']
+      ]
+    },
+    {
+      slug: 'coclico',
+      meta: 'EU Project · Vizzuality',
+      short: 'CoCliCo',
+      line: 'A European coastal climate-risk platform. Turned stakeholder interviews into personas, user stories and map requirements.',
+      thumb: ['thumb-coclico.webp', 720, 371, 'CoCliCo coastal risk map platform'],
+      eyebrow: 'EU Project · Vizzuality',
+      client: 'EU Project with Deltares and Partners',
+      title: 'CoCliCo, European Coastal Climate-Risk Platform',
+      tags: ['EU Project', 'Geospatial', 'Project Management', 'Project Communications Plan', 'Requirements Definition', 'GIS Data Mapping', 'Dashboard UI Design', 'User Research', 'GIS Data Workshops'],
+      tldr: 'An EU-funded platform to predict and adapt to coastal flood risk. I mapped data layers to requirements, then carried those into the visual design of the map and dashboard. Deltares handled implementation, so the live build differs a little from the originals, given the time constraints.',
+      did: [
+        ['Stakeholder & risk-capability matrix.', 'Structured potential users by risk vs. capability across national, regional and private-infrastructure scales, so the consortium could prioritise who to serve.'],
+        ['Personas & user stories.', 'Turned real interviews with European organisations into personas and user stories used as product requirements for the dashboard and map.'],
+        ['Data-layer workshops.', 'Ran workshops to map which data layers could answer each user story, and how each would translate into a specific map layer or dashboard component.'],
+        ['Dashboard & map design.', 'Designed the visual dashboard and map interface from those requirements, ready for the build team.'],
+        ['User-feedback campaign.', 'Ran a LinkedIn + webinar campaign engaging authorities, port managers, governments and infrastructure owners; synthesised the feedback into a "Rich User Narrative" that fed product definition.'],
+        ['Delivery & comms work package.', 'Owned milestones, stakeholder updates and communication plans conveying impact to partners and funders.']
+      ],
+      why: 'We brought the visualization expertise that unblocked the work: helping the consortium turn user needs into clear requirements, and translating raw data layers into a dashboard and map layers people could actually read.',
+      live: ['https://www.coclicoservices.eu', 'See it live'],
+      images: [
+        ['coclico-1.webp', 1800, 927, 'CoCliCo map platform of the European coast with layer controls'],
+        ['coclico-2.webp', 1268, 734, 'CoCliCo map of flood exposure along North Sea coasts'],
+        ['coclico-3.png', 1376, 772, 'CoCliCo campaign illustration on the impacts of sea-level rise']
+      ]
+    },
+    {
+      slug: 'ice-logistics',
+      meta: 'Vizzuality · British Antarctic Survey',
+      short: 'Ice Logistics Portal',
+      line: 'Polar sea-ice navigation on Copernicus EO data. Led discovery and design, mapping requirements to data layers.',
+      thumb: ['thumb-ice.webp', 720, 532, 'Ice Logistics Portal map of Antarctica'],
+      eyebrow: 'Vizzuality · Platform Visual & UI Redesign',
+      client: 'British Antarctic Survey · ESA-funded',
+      title: 'Ice Logistics Portal, Polar Sea-Ice Navigation on Satellite EO Data',
+      tags: ['Earth Observation', 'Platform Redesign', 'UI Reconceptualization', 'Functional Prototype', 'Satellite Data', 'Platform Brand Workshop', 'UX/UI Project Management'],
+      tldr: "A redesign of Polar View's near-real-time sea-ice portal, built on Copernicus satellite EO data, helping researchers, maritime operators and policymakers navigate the poles safely. I led discovery and design for the British Antarctic Survey, the ESA-funded client.",
+      challenge: "Modernise the interface and fold in Ice Logistics functionality for a global audience of researchers, commercial operators and tourism professionals, making complex, near-real-time sea-ice data usable, visually appealing and genuinely pleasant to spend time in, even in some of the world's most demanding environments.",
+      did: [
+        ['Led the discovery and design phases', 'through client workshops, iterating toward a scalable, intuitive interface for polar EO data.'],
+        ['Delivered wireframes, an interactive Figma prototype and visual guidelines', "tailored to Polar View's users and data, work that helped the British Antarctic Survey secure further funding for implementation."],
+        ['Acted as the client-facing point of contact', 'with the British Antarctic Survey and the Polar View programme.']
+      ],
+      why: 'A visual and functional redesign is not only about making things look good; it is about an interface that makes navigating complex satellite-image databases understandable and accessible, so the people reading sea-ice conditions can act on them with confidence.',
+      live: ['https://www.vizzuality.com/project/ice-logistics-portal', 'See it live'],
+      images: [
+        ['ice-1.avif', 860, 636, 'Ice Logistics Portal map of Antarctica with research station markers'],
+        ['ice-2.avif', 476, 636, 'Ice Logistics Portal layer panel with satellite image sources and a date picker'],
+        ['ice-3.avif', 860, 636, 'Ice Logistics Portal satellite view of Antarctic sea ice']
+      ]
+    },
+    {
+      slug: 'design-system',
+      meta: 'Design Systems · Global Canopy · ENCORE',
+      short: 'Design Systems & Documentation',
+      line: 'Creating and documenting the ENCORE design system: consistency for the team, and docs that teach users how to read the data.',
+      thumb: ['thumb-ds.webp', 720, 707, 'ENCORE design system data-visualisation palettes'],
+      eyebrow: 'Design Systems · Global Canopy · ENCORE',
+      client: 'Global Canopy · ENCORE Insights',
+      title: 'ENCORE Design System, Built and Documented to Scale',
+      tags: ['Design Systems', 'Documentation', 'Data Visualization', 'Claude Code + Figma MCP'],
+      tldr: "I create and document the ENCORE design system: tokens, components and chart patterns, plus the documentation that explains how to use them and why. It keeps design consistent, makes recurring features cheap to build as the ecosystem grows, and teaches clients and users how to read the platform's heatmaps, matrices and charts.",
+      did: [
+        ['Created the design system:', 'tokens, type scale, data-viz palettes and component specs for ENCORE Insights, built with Claude Code connected to Figma through MCP and kept in sync between code and design.'],
+        ['Documented every component and chart,', 'how to use each component and when to choose a matrix view, a table or a heatmap, and why, complementing the work of the designers so decisions survive beyond the Figma file.'],
+        ['Audited token drift:', '11 drift points found across the platform, 142 raw tokens consolidated into 38 semantic anchors, saving an estimated 24 dev-hours a quarter.'],
+        ['Wrote reader-facing data-viz guidance,', 'explaining to clients and users why the palettes encode what they do and how variables and numbers map to each graph, so the platform teaches people to read it.']
+      ],
+      carousel: [
+        ['ds-doc-1.png', 'Documentation slide: the heatmap'],
+        ['ds-doc-2.png', 'Documentation slide: you could see that a sector depends on nature, not how'],
+        ['ds-doc-3.png', 'Documentation slide: economic sectors by ecosystem services, 625 cells'],
+        ['ds-doc-4.png', 'Documentation slide: two categorical axes and one intensity'],
+        ['ds-doc-5.png', 'Documentation slide: the heatmap on the platform'],
+        ['ds-doc-6.png', "Documentation slide: every cell is one sector's reliance on one ecosystem service"],
+        ['ds-doc-7.png', 'Documentation slide: built in record time, by a small team'],
+        ['ds-doc-9.png', 'Documentation slide: try the heatmap']
+      ],
+      why: 'A documented design system serves two audiences at once. Internally it keeps a growing product ecosystem consistent and makes recurring features cheap to build; externally it explains why a heatmap, matrix or palette looks the way it does, so users can actually read the data.',
+      images: [
+        ['ds-1.png', 1600, 372, 'Token audit summary: 11 drift points, 142 raw tokens, 38 semantic anchors, about 24 hours saved'],
+        ['ds-2.png', 976, 1429, 'ENCORE design system type scale specimen'],
+        ['ds-3.webp', 1600, 1571, 'ENCORE design system data-visualisation colour palettes']
+      ]
+    },
+    {
+      slug: 'ai-pilot',
+      meta: 'Current · Global Canopy',
+      short: 'AI Pilot & Use-Case Library',
+      line: "Global Canopy's internal AI pilot: a use-case library, prompt system, policies and enablement, so a whole organisation adopts AI responsibly.",
+      thumb: ['thumb-ai-pilot.webp', 720, 387, 'AI use-case library interface'],
+      eyebrow: 'Current · Global Canopy',
+      client: 'Global Canopy',
+      title: 'AI Pilot, Adopting AI Responsibly Across an NGO',
+      tags: ['AI', 'Operations', 'Policy', 'Enablement'],
+      tldr: "I lead Global Canopy's internal AI pilot: a use-case library and prompt system, plus the policies and learning resources that let the whole organisation adopt AI responsibly.",
+      did: [
+        ['Lead the internal AI pilot,', 'experimenting with and documenting how AI is applied across functional areas.'],
+        ['Built the AI use-case library and prompt system,', 'turning scattered individual experiments into shared, reusable practice with clear privacy and risk guidance.'],
+        ['Build the policies, libraries and learning resources', 'to scale its use responsibly.']
+      ],
+      why: "AI adoption sticks when it is documented, governed and shared. A use-case library with prompts, alternatives and risk guidance turns one person's experiment into organisational capability.",
+      images: [
+        ['ai-pilot-1.png', 1600, 860, 'AI use-case library listing use cases by organisational function'],
+        ['ai-pilot-2.png', 1600, 626, 'AI library entry for design-system prompts and component guidelines'],
+        ['ai-pilot-3.png', 1600, 933, 'AI library prompt detail with recommended uses and risk guidance']
+      ]
+    }
+  ];
+  var FEATURED = ['trase', 'encore', 'coclico', 'ice-logistics'];
+  function findCase(slug) { for (var i = 0; i < CASES.length; i++) if (CASES[i].slug === slug) return CASES[i]; return null; }
+
+  var WHAT_I_DO = ['Requirements & user stories', 'Scientists as users', 'Data quality & completeness', 'UX/UI & data visualisation', 'Maps & geospatial products', 'Cross-functional delivery', 'Product operations', 'AI-assisted prototyping'];
+
+  var CAPABILITIES = [
+    ['Requirements from science.', 'I define requirements at every level, from PRDs down to testable items, grounded in evidence. I turn interviews, analytics and scientific input into clear product decisions.', 'CoCliCo personas & user stories · Trase research → product changes · ENCORE'],
+    ['Product, UI & data visualisation.', 'Conceptualisation, UI design, and making data-dense dashboards and maps readable.', 'Ice Logistics · Trase data cards · ENCORE heatmaps · Mongabay'],
+    ['Delivery & product operations.', 'I set up how product work actually runs: lifecycle, backlog, governance and the weekly mechanics that keep multi-partner delivery moving.', 'GC product lifecycle · Open Forests · CoCliCo work package · Jira / Asana / Notion'],
+    ['AI prototyping & design systems.', 'AI-assisted prototyping lets a team test ideas faster and frees designers to polish. Design systems keep growing products consistent.', 'ENCORE design system · Global Canopy AI pilot'],
+    ['Product communications.', 'Explaining what a product does, and to whom, is half the job. I turn features into stories people act on.', 'LandGriffon · CoCliCo · MIRACA']
+  ];
+
+  // [year, title, org, category]; chronological. Dates follow the CV (brief section 3, About).
+  var TIMELINE = [
+    ['1988', 'Background', 'Granada, ES', 'neutral'],
+    ['2015', 'BSc Biology', 'Universidad de Granada', 'study'],
+    ['2015', 'Scuba-diving instructor', 'Buceo La Herradura & ARGOS', 'neutral'],
+    ['2017', 'MSc Marketing & Social Media', 'Universidad de Granada', 'study'],
+    ['2018', 'Project Manager', 'Flat 101', 'work'],
+    ['2018', 'PM & Comms Consultant', 'Prodigioso Volcán', 'work'],
+    ['2019', 'Agile & Comms Consultant', 'Freelance', 'work'],
+    ['2020', 'PM & Project Lead', 'Vizzuality', 'work'],
+    ['2024', 'Project Manager', 'Open Forests', 'work'],
+    ['2025', 'Product Manager', 'Global Canopy (ENCORE)', 'work']
+  ];
+  var CAT_COLOR = { study: 'var(--teal)', work: 'var(--accent)', neutral: 'var(--text-faint)' };
+
+  var EDUCATION = [
+    'BSc Biology, Universidad de Granada (2015)',
+    'MSc Online Marketing & Social Media, Universidad de Granada (2017)',
+    'Product Design & Design Systems with AI, Memorisely (2025)',
+    'AI for Product Management, Pendo (2024)',
+    'Generative AI Overview for Project Managers, PMI (2024)',
+    'Product Management, SAT.Knowledge (2024)',
+    'Product Analytics, Pendo (2024) · Google Analytics, Skillshop (2024)',
+    'IxDF, UX Management, Information Visualization & Dashboards, Design Thinking, UX',
+    'Agile with Atlassian JIRA (2023)'
+  ];
+
+  // ================= Views =================
+  function card(c) {
+    return '<a class="card" href="#/work/' + c.slug + '">' +
+      '<div class="card-img">' + img(c.thumb[0], c.thumb[1], c.thumb[2], c.thumb[3]) + '</div>' +
+      '<div class="card-body">' +
+        '<div class="card-meta">' + esc(c.meta) + '</div>' +
+        '<h3 class="card-title">' + esc(c.short) + '</h3>' +
+        '<p class="card-line">' + esc(c.line) + '</p>' +
+        '<span class="card-cta">View case <span class="arrow" aria-hidden="true">→</span></span>' +
+      '</div></a>';
+  }
+
+  function useCaseLink() {
+    if (USE_CASE_URL) {
+      return '<a class="btn btn-primary" href="' + esc(USE_CASE_URL) + '">See the use case <span aria-hidden="true">→</span></a>';
+    }
+    return '<span class="btn btn-disabled" aria-disabled="true">' + placeholder('[USE-CASE LINK]') + '</span>';
+  }
+
+  function viewHome() {
+    return '' +
+      '<section class="band band-dark hero" aria-labelledby="h-home">' +
+        '<div class="container">' +
+          '<p class="label">✳ Pablo Urrutia · Senior Product Manager</p>' +
+          '<h1 class="h1" id="h-home" tabindex="-1">Product manager for <span class="hl">nature data products</span> that scientists and businesses use.</h1>' +
+          '<p class="lede">I\'m a biologist turned product manager. For 6+ years I\'ve turned field science and geospatial data into products people use: owning requirements, working shoulder to shoulder with scientists, engineers and designers, and making data-dense maps and dashboards readable. Today I run product for ENCORE Insights at Global Canopy.</p>' +
+          '<div class="btns">' +
+            '<a class="btn btn-primary" href="#/work">View selected work <span aria-hidden="true">→</span></a>' +
+            '<a class="btn" href="#/how">How I work</a>' +
+            '<a class="btn" href="#/contact">Get in touch</a>' +
+          '</div>' +
+          '<div class="badge"><span class="badge-label">✳ A portfolio curated for</span><span class="pill">renew</span></div>' +
+        '</div>' +
+      '</section>' +
+      '<section class="band band-light" aria-labelledby="h-featured">' +
+        '<div class="container">' +
+          '<h2 class="label" id="h-featured">✳ Featured work</h2>' +
+          '<div class="cards">' + FEATURED.map(function (s) { return card(findCase(s)); }).join('') + '</div>' +
+        '</div>' +
+      '</section>' +
+      '<section class="band band-dark" aria-labelledby="h-next">' +
+        '<div class="container">' +
+          '<div class="nextup">' +
+            '<p class="label label-orange">✳ Next up · A use case for renew</p>' +
+            '<h2 class="h2" id="h-next">Site nature snapshot</h2>' +
+            '<p>Rather than only telling you how I\'d work, I\'m showing it. A small working prototype for one real site in Spain: open, multi-taxa biodiversity records on a map, plus a data-completeness view that shows which species groups are under-recorded. Scoped like a PM, with the brief and decisions in the open. Landing this week.</p>' +
+            '<div class="btns">' + useCaseLink() + '</div>' +
+          '</div>' +
+        '</div>' +
+      '</section>' +
+      '<section class="band band-light" aria-labelledby="h-do">' +
+        '<div class="container">' +
+          '<h2 class="label" id="h-do">✳ What I do</h2>' +
+          chips(WHAT_I_DO) +
+        '</div>' +
+      '</section>';
+  }
+
+  function viewWork() {
+    return '' +
+      '<section class="band band-dark">' +
+        '<div class="container">' +
+          '<p class="label">✳ Selected work</p>' +
+          '<h1 class="h1" tabindex="-1">A curated selection of work</h1>' +
+          '<p class="intro">The projects with the most interesting problems, decisions and craft behind them. There\'s more where these came from: <a class="inline-link" href="#/contact">get in touch</a> if you\'d like to see other projects.</p>' +
+        '</div>' +
+      '</section>' +
+      '<section class="band band-light" aria-label="Case studies">' +
+        '<div class="container"><div class="cards">' + CASES.map(card).join('') + '</div></div>' +
+      '</section>';
+  }
+
+  function bullets(list) {
+    return '<ul class="bullets">' + list.map(function (b) {
+      return '<li><span><strong>' + esc(b[0]) + '</strong> ' + esc(b[1]) + '</span></li>';
+    }).join('') + '</ul>';
+  }
+
+  function viewCase(c) {
+    var first = c.images[0];
+    var rest = c.images.slice(1);
+    var h = '<article class="case"><div class="container">' +
+      '<div class="case-head">' +
+        '<a class="back" href="#/work"><span aria-hidden="true">←</span> Back to work</a>' +
+        '<span class="case-client">' + esc(c.client) + '</span>' +
+      '</div>' +
+      '<div class="gallery">' +
+        '<figure>' + img(first[0], first[1], first[2], first[3], true) + '</figure>' +
+        (rest.length ? '<div class="rest">' + rest.map(function (g) { return '<figure>' + img(g[0], g[1], g[2], g[3]) + '</figure>'; }).join('') + '</div>' : '') +
+      '</div>' +
+      '<p class="label">' + esc(c.eyebrow) + '</p>' +
+      '<h1 class="h1" tabindex="-1">' + esc(c.title) + '</h1>' +
+      chips(c.tags, true) +
+      '<div class="tldr-box"><b>TL;DR</b><p>' + esc(c.tldr) + '</p></div>';
+    if (c.challenge) {
+      h += '<section class="case-sec"><h2 class="h2">The challenge</h2><p>' + esc(c.challenge) + '</p></section>';
+    }
+    h += '<section class="case-sec"><h2 class="h2">What I did</h2>' + bullets(c.did) + '</section>';
+    if (c.carousel) {
+      h += '<section class="case-sec" aria-labelledby="h-docs">' +
+        '<p class="label" id="h-docs">✳ From the design-system docs</p>' +
+        '<p style="margin-bottom:14px;font-size:15px;color:var(--ink-2)">How to read the heatmap, the reader-facing explainer published straight from the documentation. Swipe →</p>' +
+        '<div class="carousel" tabindex="0" role="region" aria-labelledby="h-docs">' +
+          c.carousel.map(function (s) { return '<figure>' + img(s[0], 1047, 1309, s[1]) + '</figure>'; }).join('') +
+        '</div></section>';
+    }
+    if (c.impact) {
+      h += '<section class="case-sec"><h2 class="h2">The impact</h2>' + bullets(c.impact) + '</section>';
+    }
+    h += '<section class="why"><h2 class="label">✳ Why it matters</h2><p>' + esc(c.why) + '</p></section>';
+    if (c.live) {
+      h += '<a class="live" href="' + esc(c.live[0]) + '" target="_blank" rel="noopener">' + esc(c.live[1]) + ' <span class="arrow" aria-hidden="true">→</span><span class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"> (opens in a new tab)</span></a>';
+    }
+    h += '<div class="case-foot"><a class="back" href="#/work"><span aria-hidden="true">←</span> Back to work</a></div>';
+    return h + '</div></article>';
+  }
+
+  function viewHow() {
+    return '' +
+      '<section class="band band-dark">' +
+        '<div class="container">' +
+          '<p class="label">✳ How I work</p>' +
+          '<h1 class="h1" tabindex="-1">Science-first, evidence-led</h1>' +
+          '<p class="intro">Five capabilities, each backed by the work. I connect scientists, engineers and designers, and turn what they know into products people can use.</p>' +
+          '<ol class="caps">' + CAPABILITIES.map(function (c, i) {
+            return '<li class="cap"><span class="cap-n">0' + (i + 1) + '</span><h2 class="h3">' + esc(c[0]) + '</h2><p>' + esc(c[1]) + '</p><p class="cap-ev">' + esc(c[2]) + '</p></li>';
+          }).join('') + '</ol>' +
+        '</div>' +
+      '</section>' +
+      '<section class="band band-dark" aria-labelledby="h-why">' +
+        '<div class="container">' +
+          '<div class="panel">' +
+            '<p class="label label-orange">✳ Why renew</p>' +
+            '<h2 class="h2" id="h-why" style="margin-bottom:14px">Where I want to build next.</h2>' +
+            '<p>This portfolio is curated for renew. renew starts where my career started: field science, transects and species counts. It turns that science into decision-grade data for business, which is the gap between scientific rigour and ease of use I\'ve worked on for six years. And I want to do it inside a product team: designers, data scientists and domain experts I can learn from, and one product to build over time.</p>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+  }
+
+  function viewAbout() {
+    return '' +
+      '<section class="band band-dark">' +
+        '<div class="container">' +
+          '<p class="label">✳ About</p>' +
+          '<h1 class="h1" tabindex="-1">From biology to nature data products</h1>' +
+          '<div class="about-grid">' +
+            '<div>' +
+              '<p class="story">I started as a biologist, a BSc at the University of Granada (evolutionary ecology, with marine taxonomy and conservation). Before tech, I worked as a commercial scuba-diving instructor and ran a dive centre’s operations, where I first learned agile and Kanban by necessity. That pull toward impact drew me into digital products and data visualization, and then into leading the delivery of GIS and sustainability platforms, at Vizzuality (Ice Logistics, Trase, CoCliCo, Mongabay) and now as a product manager at Global Canopy.</p>' +
+              '<div class="box"><h2 class="label">The honest framing</h2><p>My strength is coordination, product and delivery: I connect partners with scientific and engineering teams, keep complex multi-partner work moving, and translate science into products people use. I stay close to the engineering and requirement-writing work, and I leave the deep technical decisions to the specialists who own them.</p></div>' +
+              '<p class="earlier">Before sustainability and geospatial work, I spent several years in project management, content strategy and UX/UI across agencies and clients (Flat 101, Prodigioso Volcán, freelance), building the PM and design-system foundations I use today.</p>' +
+              '<div class="box"><h2 class="label label-orange">✳ Why this role</h2><p>I\'ve spent six years leading the delivery of nature and geospatial data products, from Trase to the British Antarctic Survey\'s Ice Logistics Portal, and today ENCORE Insights. renew\'s mix is the one I know best: field scientists as users, business clients as customers, and data that has to be both rigorous and readable. Working from Spain, I\'m happy to work UK hours.</p></div>' +
+              '<h2 class="h2 section-h">Bio &amp; education</h2>' +
+              '<ol class="timeline">' + TIMELINE.map(function (t) {
+                return '<li style="--c:' + CAT_COLOR[t[3]] + '"><span class="t-year">' + esc(t[0]) + (t[4] ? ' ' + placeholder(t[4]) : '') + '</span>' +
+                  '<span><span class="t-title">' + esc(t[1]) + '</span><span class="t-org">' + esc(t[2]) + '</span></span></li>';
+              }).join('') + '</ol>' +
+            '</div>' +
+            '<aside aria-label="Earlier life and education">' +
+              '<figure style="margin:0"><div class="photo">' + img('about-scuba.png', 373, 261, 'Pablo, scuba diving') + '</div>' +
+              '<figcaption class="caption">Earlier life, commercial scuba instructor, Granada coast.</figcaption></figure>' +
+              '<div class="edu"><h2 class="label">Education &amp; certifications</h2><ul>' +
+                EDUCATION.map(function (e) { return '<li>' + esc(e) + '</li>'; }).join('') +
+              '</ul></div>' +
+            '</aside>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+  }
+
+  function viewContact() {
+    return '' +
+      '<section class="band band-dark">' +
+        '<div class="container">' +
+          '<p class="label">✳ Contact</p>' +
+          '<h1 class="h1" tabindex="-1">Let\'s talk.</h1>' +
+          '<p class="intro">Open to senior product roles in nature and climate data. Remote from Spain, happy to work UK hours.</p>' +
+          '<div class="rows">' +
+            '<a class="row-link" href="mailto:pablodelmares@gmail.com"><span><span class="row-k">Email</span><span class="row-v">pablodelmares@gmail.com</span></span><span class="arrow" aria-hidden="true">→</span></a>' +
+            '<a class="row-link" href="https://www.linkedin.com/in/pablo-urrutia/" target="_blank" rel="noopener"><span><span class="row-k">LinkedIn</span><span class="row-v">linkedin.com/in/pablo-urrutia</span></span><span class="arrow" aria-hidden="true">→</span></a>' +
+            '<div class="row"><span><span class="row-k">Location</span><span class="row-v">Spain, remote-first, UK hours.</span></span></div>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
+  }
+
+  function viewTldr() {
+    var link = USE_CASE_URL ? '<a href="' + esc(USE_CASE_URL) + '">' + esc(USE_CASE_URL) + '</a>' : placeholder('[USE-CASE LINK]');
+    function row(k, v) { return '<div><dt>' + k + '</dt><dd>' + v + '</dd></div>'; }
+    return '<div class="tldr">' +
+      '<h1 class="h1" tabindex="-1">Pablo Urrutia · Senior Product Manager.</h1>' +
+      '<p class="sub">Biologist turned product manager, 6+ years in nature and geospatial data products. Spain, remote, UK hours.</p>' +
+      '<dl>' +
+        row('Now', 'Product Manager, ENCORE Insights (Global Canopy): nature-risk data for finance. Also built Global Canopy\'s product lifecycle and led its AI pilot.') +
+        row('Before', 'Vizzuality 2020–2024 (PM to Project Lead): Trase, CoCliCo, Ice Logistics Portal, Mongabay. Open Forests 2024–25: product and operations foundations.') +
+        row('Proof', 'Trase research → context-first flow and data cards, search completion and engagement up. CoCliCo interviews → personas and user stories for the map. Ice Logistics: discovery and design on Copernicus EO data.') +
+        row('What I do', 'requirements, scientists as users, data quality, UX/UI and data visualisation, cross-functional delivery, product operations.') +
+        row('For renew', 'a site nature snapshot use case, landing this week: ' + link) +
+        row('Contact', '<a href="mailto:pablodelmares@gmail.com">pablodelmares@gmail.com</a> · <a href="https://www.linkedin.com/in/pablo-urrutia/" target="_blank" rel="noopener">linkedin.com/in/pablo-urrutia</a>') +
+      '</dl></div>';
+  }
+
+  // ================= Router & mode =================
+  var main = document.getElementById('main');
+  var body = document.body;
+  var modeBtn = document.querySelector('.mode');
+  var burger = document.querySelector('.burger');
+  var nav = document.getElementById('site-nav');
+  var navLinks = nav.querySelectorAll('a');
+  var firstRender = true;
+  var mode = 'full';
+  try { if (localStorage.getItem('pu-renew-mode') === 'tldr') mode = 'tldr'; } catch (e) { /* storage unavailable */ }
+
+  function parse() {
+    var parts = (location.hash || '#/').replace(/^#\/?/, '').split('/').filter(Boolean);
+    return { page: parts[0] || 'home', slug: parts[1] || null };
+  }
+
+  function setMenu(open) {
+    nav.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.textContent = open ? '✕' : '☰';
+  }
+
+  function render() {
+    var r = parse();
+    var html, title, navKey = r.page;
+    if (mode === 'tldr') {
+      html = viewTldr(); title = 'TL;DR · ' + NAME;
+    } else if (r.page === 'work' && r.slug && findCase(r.slug)) {
+      var c = findCase(r.slug);
+      html = viewCase(c); title = c.short + ' · ' + NAME;
+    } else if (r.page === 'work') {
+      html = viewWork(); title = 'Selected work · ' + NAME;
+    } else if (r.page === 'how') {
+      html = viewHow(); title = 'How I work · ' + NAME;
+    } else if (r.page === 'about') {
+      html = viewAbout(); title = 'About · ' + NAME;
+    } else if (r.page === 'contact') {
+      html = viewContact(); title = 'Contact · ' + NAME;
+    } else {
+      html = viewHome(); title = NAME + ' · Senior Product Manager'; navKey = 'home';
+    }
+    main.innerHTML = html;
+    document.title = title;
+    body.setAttribute('data-mode', mode);
+    modeBtn.setAttribute('aria-pressed', String(mode === 'tldr'));
+    for (var i = 0; i < navLinks.length; i++) {
+      if (navLinks[i].getAttribute('data-nav') === navKey) navLinks[i].setAttribute('aria-current', 'page');
+      else navLinks[i].removeAttribute('aria-current');
+    }
+    setMenu(false);
+    if (!firstRender) {
+      window.scrollTo(0, 0);
+      var h1 = main.querySelector('h1');
+      if (h1) h1.focus({ preventScroll: true });
+    }
+    firstRender = false;
+  }
+
+  modeBtn.addEventListener('click', function () {
+    mode = mode === 'tldr' ? 'full' : 'tldr';
+    try { localStorage.setItem('pu-renew-mode', mode); } catch (e) { /* storage unavailable */ }
+    render();
+  });
+  burger.addEventListener('click', function () { setMenu(burger.getAttribute('aria-expanded') !== 'true'); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { setMenu(false); burger.focus(); }
+  });
+  window.addEventListener('hashchange', render);
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Private application documents: never publish
+*.docx
+*.pages
+*.pdf
+10_Renew_SeniorPM_PlanB.md
+.DS_Store
+node_modules/
+.tmp/
+.claude/
